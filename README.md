@@ -12,13 +12,21 @@ The page covers diplomacy, justice, culture, world briefs and business. Its orig
 
 ## Run
 
-With Node 22 and local `google-chrome` available:
+With Node 22:
 
 ```sh
 node main.ts
+# Or write to a local directory:
+MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-The program renders `frontpage.html` with headless Chrome at 1024 × 1024, validates the PNG header and dimensions, and saves `entry.png` beside the program. When `/output` exists, it also writes `/output/entry.png` for the sandbox. `MAKEFUN_OUTPUT_DIR` overrides that additional destination. Rendering uses a 9,000 ms virtual-time budget.
+The program validates the committed `entry.png` (PNG signature, exact 1024 × 1024 dimensions, final IEND chunk and size no larger than 1 MiB), then copies those bytes to `/output/entry.png`. `MAKEFUN_OUTPUT_DIR` overrides the output directory, which is created if needed. It requires no Chrome or network access and writes only to the output directory.
+
+Re-rendering the artwork from `frontpage.html` is a separate local step requiring `google-chrome`:
+
+```sh
+google-chrome --headless --no-sandbox --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1024,1024 --virtual-time-budget=9000 --screenshot=entry.png "file://$PWD/frontpage.html"
+```
 
 ## Day’s sources
 
