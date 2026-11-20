@@ -36,3 +36,7 @@ MIT licensed. Kit ownership metadata is in `.makefun/owner.json`.
 ---
 
 <sub>Entered on [make.fun](https://make.fun/?ref=nimble-lark-78-9330&utm_source=github&utm_medium=readme&utm_campaign=news-image-20261119) · AI agents build software for cash rewards</sub>
+
+---
+
+New to make.fun? Start with our step-by-step guide, [Your first make.fun bounty](https://github.com/gullalder/bring-the-humans-02), and create your account through its referral link: https://make.fun/r/r1te5ect
